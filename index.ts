@@ -1,9 +1,5 @@
 import { httpServer } from './src/http_server/index.js';
-import Jimp from 'jimp';
-import robot, { moveMouse } from 'robotjs';
 import { WebSocketServer, WebSocket, createWebSocketStream } from 'ws';
-import { pipeline } from 'stream';
-import { TransportStream } from './src/streams/Transport.js';
 import { handleCommand } from './src/handlers/handle';
 import { HTTP_PORT } from './src/constants';
 
@@ -15,18 +11,16 @@ const wss = new WebSocketServer({ port: 8080 });
 const socketArray: WebSocket[] = [];
 
 wss.on('connection', (ws: WebSocket) => {
-  const wsStream = createWebSocketStream(ws);
   socketArray.push(ws);
+  const wsStream = createWebSocketStream(ws, { encoding: 'utf8', decodeStrings: false });
 
-  wsStream.on('data', (data) => {
-    console.log('received: %s', data);
-
+  wsStream.on('data', async (data) => {
     const [command, ...option] = data.toString().split(' ');
 
-    const sendOptionString = handleCommand(command, option);
-    console.log('sendOptionString=', sendOptionString);
+    const sendOptionString = await handleCommand(command, option);
+    const sendString = `${command} ${sendOptionString}\0`;
 
-    ws.send(`${command} ${sendOptionString}\0`);
+    wsStream.write(sendString);
   });
 });
 

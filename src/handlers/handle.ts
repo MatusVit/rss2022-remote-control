@@ -1,8 +1,9 @@
 import { drawCircle, drawRectangle } from './drawFigure';
 import { COMMAND } from '../constants';
 import robot from 'robotjs';
+import { captureScreen } from './captureScreen';
 
-export const handleCommand = (command: string, option: string[]) => {
+export const handleCommand = async (command: string, option: string[]) => {
   const [arg1, arg2] = option;
 
   let sendOption = '';
@@ -37,6 +38,11 @@ export const handleCommand = (command: string, option: string[]) => {
 
     case COMMAND.drawCircle:
       drawCircle(+arg1);
+      break;
+
+    case COMMAND.prntScrn:
+      const raw = await captureScreen();
+      sendOption = raw;
       break;
 
     default:
