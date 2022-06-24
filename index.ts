@@ -31,8 +31,6 @@ wss.on('connection', (ws: WebSocket) => {
 });
 
 process.on('SIGINT', () => {
-  console.log('1 socketArray=', socketArray);
-
   socketArray.forEach((ws) => {
     ws.close();
   });
