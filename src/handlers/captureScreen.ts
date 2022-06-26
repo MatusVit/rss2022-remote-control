@@ -1,8 +1,6 @@
+import { CAPTURE_SIZE } from './../constants';
 import robot from 'robotjs';
 import Jimp from 'jimp';
-
-// const CAPTURE_SIZE = 200;
-const CAPTURE_SIZE = Number(process.env.CAPTURE_SIZE) || 200;
 
 export const captureScreen = async (): Promise<string> => {
   const { x, y } = robot.getMousePos();
