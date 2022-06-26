@@ -1,5 +1,3 @@
-export const HTTP_PORT = 3000;
-
 export const enum COMMAND {
   mouseUp = 'mouse_up',
   mouseDwn = 'mouse_down',
