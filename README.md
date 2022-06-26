@@ -11,6 +11,7 @@ Remote control backend using RobotJS library and websocket
    or
 
    > git clone https://github.com/MatusVit/rss2022-remote-control.git select branch 'task03' git
+
    > checkout task4 ​
 
 2. Install dependencies
