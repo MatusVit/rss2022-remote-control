@@ -1,30 +1,51 @@
-# RSSchool NodeJS websocket task template
-> Static http server and base task packages.
+# RSSchool Websocket Remote Control
 
-## Installation
-1. Clone/download repo
-2. `npm install`
+Remote control backend using RobotJS library and websocket
 
-## Usage
-**Development**
+## How to install
 
-`npm run start:dev`
+1. Download or clone this repository
 
-* App served @ `http://localhost:8181` with nodemon
+   > git clone git@github.com:MatusVit/rss2022-remote-control.git
 
-**Production**
+   or
 
-`npm run start`
+   > git clone https://github.com/MatusVit/rss2022-remote-control.git select branch 'task03' git
+   > checkout task4 ​
 
-* App served @ `http://localhost:8181` without nodemon
+2. Install dependencies
+   > npm install
 
----
+## How to use
 
-**All commands**
+development mode
 
-Command | Description
---- | ---
-`npm run dev` | App served @ `http://localhost:8181` with nodemon
-`npm run start` | App served @ `http://localhost:8181` without nodemon
+> npm run start:dev
 
-**Note**: replace `npm` with `yarn` in `package.json` if you use yarn.
+production mode
+
+> npm run start
+
+Open http://localhost:3000
+
+WebSocket URL by default ws://localhost:8080
+
+## Base commands
+
+### Navigation over the x and y axis
+
+- move mouse up - keyboard "up" button
+- move mouse down - keyboard "down" button
+- move mouse left - keyboard "left" button
+- move mouse right - keyboard "right" button
+- get mouse coordinates - keyboard "p" button
+
+### Drawing
+
+- draw circle - keyboard "c" button
+- draw rectangle - keyboard "r" button
+- draw square - keyboard "c" button
+
+### Print screen
+
+get part of screen image - keyboard "LCtrl+p" button
