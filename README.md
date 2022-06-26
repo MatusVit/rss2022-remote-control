@@ -19,15 +19,21 @@ Remote control backend using RobotJS library and websocket
 
 ## How to use
 
+> npm run start
+
+or
+
 development mode
 
 > npm run start:dev
 
+or
+
 production mode
 
-> npm run start
+> npm run start:prod
 
-Open http://localhost:3000
+Open http://localhost:3000 by default
 
 WebSocket URL by default ws://localhost:8080
 
